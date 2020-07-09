@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.setelgeofencing">
+    <!-- Flutter needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <receiver   android:name="com.webstersys.geofence.geofence.GeofenceBroadcastReceiver"
+        android:enabled="true"
+        android:exported="true" />
+    <service android:name="com.webstersys.geofence.geofence.GeofenceTransitionsJobIntentService" android:enabled="true" android:exported="true"
+        android:permission="android.permission.BIND_JOB_SERVICE"/>
+    <receiver android:name="com.webstersys.geofence.BootDeviceReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        </intent-filter>
+    </receiver>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+</manifest>
